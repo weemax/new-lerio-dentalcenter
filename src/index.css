@@ -1,0 +1,505 @@
+@import "tailwindcss";
+
+/* =========================================================================
+   DESIGN TOKENS — copy verbatim from the project spec.
+   Every --xxx referenced by another token is defined in :root.
+   ========================================================================= */
+:root {
+  --primary-color: #4A7CD2;
+  --primary-color-rgb: 74, 124, 210;
+  --secondary-color: #EAA638;
+  --secondary-color-rgb: 234, 166, 56;
+
+  --body-font: "Inter", Helvetica, Arial, sans-serif;
+  --body-font-size: 16px;
+  --body-font-color: #93a0af;
+  --body-font-color-dark: rgba(255, 255, 255, 0.6);
+  --body-font-weight: 400;
+
+  --heading-font: "Urbanist", Helvetica, Arial, sans-serif;
+  --heading-font-weight: 600;
+  --heading-font-color: #10244b;
+  --heading-text-transform: none;
+
+  --h1-font-size: 60px;
+  --h1-font-weight: 600;
+  --h1-letter-spacing: -0.027em;
+  --h1-line-height: 1.15em;
+  --h1-margin-bottom: 20px;
+
+  --h2-font: "Urbanist", Helvetica, Arial, sans-serif;
+  --h2-font-size: 48px;
+  --h2-font-weight: 600;
+  --h2-letter-spacing: -0.025em;
+  --h2-line-height: 1.2em;
+  --h2-margin-bottom: 20px;
+
+  --h3-font-size: 26px;
+  --h3-font-weight: 600;
+  --h3-letter-spacing: 0;
+  --h3-line-height: 1.5em;
+  --h3-margin-bottom: 10px;
+
+  --h4-font-size: 20px;
+  --h4-font-weight: 600;
+  --h4-letter-spacing: 0;
+  --h4-line-height: 1.6em;
+  --h4-margin-bottom: 10px;
+
+  --h5-font-size: 18px;
+  --h5-font-weight: 600;
+  --h5-letter-spacing: 0;
+  --h5-line-height: 1.6em;
+  --h5-margin-bottom: 10px;
+
+  --h6-font-size: 16px;
+  --h6-font-weight: 600;
+  --h6-letter-spacing: 0;
+  --h6-line-height: 1.6em;
+  --h6-margin-bottom: 10px;
+
+  --mainmenu-font: "Inter", Helvetica, Arial, sans-serif;
+  --mainmenu-font-size: 15px;
+  --mainmenu-font-weight: 600;
+  --mainmenu-letter-spacing: 0;
+  --mainmenu-text-transform: none;
+  --mainmenu-item-padding: 35px 0;
+  --mainmenu-item-padding-hover: 20px 0;
+
+  --logo-width: 150px;
+  --logo-footer-width: 150px;
+
+  --border-default: solid 1px rgba(30, 30, 30, 1);
+  --bg-color-even: #E8E8E8;
+  --bg-color-odd: #F4F4F4;
+  --bg-light: #F8F9FA;
+  --bg-dark-1: #000A5B;
+  --bg-dark-2: #071630;
+  --bg-dark-3: #1e1e1e;
+  --bg-dark-1-rgb: 0, 10, 91;
+  --bg-grey: #eeeeee;
+
+  --bg-gradient-1: linear-gradient(
+    0deg,
+    rgba(74, 124, 210, 0.1) 0%,
+    rgba(234, 166, 56, 0.2) 100%
+  );
+
+  --swiper-theme-color: #EAA638;
+  --rounded-1: 20px;
+  --border-color: #bbbbbb;
+
+  --container-max-width: 1240px;
+
+  --btn-color: #fff;
+  --btn-hover-bg: #000A5B;
+  --btn-font-family: "Inter", Helvetica, Arial, sans-serif;
+  --btn-font-size: 15px;
+  --btn-font-weight: bold;
+  --btn-letter-spacing: 0;
+  --btn-padding: 6px 20px;
+  --btn-rounded: 8px;
+  --btn-text-decoration: none;
+  --btn-text-transform: none;
+
+  color-scheme: light;
+}
+
+/* =========================================================================
+   TAILWIND v4 THEME BRIDGE — exposes the tokens as Tailwind utilities
+   (bg-primary, text-heading, font-heading, etc.).
+   ========================================================================= */
+@theme inline {
+  --color-primary: var(--primary-color);
+  --color-primary-rgb: var(--primary-color-rgb);
+  --color-secondary: var(--secondary-color);
+  --color-secondary-rgb: var(--secondary-color-rgb);
+  --color-heading: var(--heading-font-color);
+  --color-body: var(--body-font-color);
+  --color-body-dark: var(--body-font-color-dark);
+  --color-border-default: var(--border-color);
+  --color-bg-light: var(--bg-light);
+  --color-bg-even: var(--bg-color-even);
+  --color-bg-odd: var(--bg-color-odd);
+  --color-bg-grey: var(--bg-grey);
+  --color-bg-dark-1: var(--bg-dark-1);
+  --color-bg-dark-2: var(--bg-dark-2);
+  --color-bg-dark-3: var(--bg-dark-3);
+  --color-swiper: var(--swiper-theme-color);
+
+  --font-body: var(--body-font);
+  --font-heading: var(--heading-font);
+  --font-button: var(--btn-font-family);
+
+  --radius-card: var(--rounded-1);
+  --radius-btn: var(--btn-rounded);
+}
+
+/* =========================================================================
+   BASE — typography, smooth scroll, baseline resets.
+   ========================================================================= */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--body-font);
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-weight);
+  color: var(--body-font-color);
+  background-color: #ffffff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  font-weight: var(--heading-font-weight);
+  color: var(--heading-font-color);
+  text-transform: var(--heading-text-transform);
+  margin-top: 0;
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+  font-weight: var(--h1-font-weight);
+  letter-spacing: var(--h1-letter-spacing);
+  line-height: var(--h1-line-height);
+  margin-bottom: var(--h1-margin-bottom);
+}
+
+h2 {
+  font-family: var(--h2-font);
+  font-size: var(--h2-font-size);
+  font-weight: var(--h2-font-weight);
+  letter-spacing: var(--h2-letter-spacing);
+  line-height: var(--h2-line-height);
+  margin-bottom: var(--h2-margin-bottom);
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+  font-weight: var(--h3-font-weight);
+  letter-spacing: var(--h3-letter-spacing);
+  line-height: var(--h3-line-height);
+  margin-bottom: var(--h3-margin-bottom);
+}
+
+h4 {
+  font-size: var(--h4-font-size);
+  font-weight: var(--h4-font-weight);
+  letter-spacing: var(--h4-letter-spacing);
+  line-height: var(--h4-line-height);
+  margin-bottom: var(--h4-margin-bottom);
+}
+
+h5 {
+  font-size: var(--h5-font-size);
+  font-weight: var(--h5-font-weight);
+  letter-spacing: var(--h5-letter-spacing);
+  line-height: var(--h5-line-height);
+  margin-bottom: var(--h5-margin-bottom);
+}
+
+h6 {
+  font-size: var(--h6-font-size);
+  font-weight: var(--h6-font-weight);
+  letter-spacing: var(--h6-letter-spacing);
+  line-height: var(--h6-line-height);
+  margin-bottom: var(--h6-margin-bottom);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--secondary-color);
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+/* =========================================================================
+   UTILITIES — small layout helpers used across components.
+   ========================================================================= */
+.container-x {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-x {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.section-pad {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+@media (min-width: 768px) {
+  .section-pad {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--body-font);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  margin-bottom: 14px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--secondary-color);
+  border-radius: 2px;
+}
+
+.eyebrow--light {
+  color: var(--secondary-color);
+}
+
+.eyebrow--light::before {
+  background: var(--secondary-color);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--btn-font-family);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  letter-spacing: var(--btn-letter-spacing);
+  text-decoration: var(--btn-text-decoration);
+  text-transform: var(--btn-text-transform);
+  padding: var(--btn-padding);
+  border-radius: var(--btn-rounded);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--btn-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background-color: var(--btn-hover-bg);
+  border-color: var(--btn-hover-bg);
+  color: var(--btn-color);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px -10px rgba(var(--bg-dark-1-rgb), 0.6);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  background-color: var(--primary-color);
+  color: var(--btn-color);
+  transform: translateY(-1px);
+}
+
+.btn-outline-light {
+  background-color: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-outline-light:hover,
+.btn-outline-light:focus-visible {
+  background-color: #fff;
+  color: var(--primary-color);
+  border-color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: var(--primary-color);
+  border-color: #fff;
+}
+
+.btn-white:hover,
+.btn-white:focus-visible {
+  background-color: var(--secondary-color);
+  color: #fff;
+  border-color: var(--secondary-color);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-lg {
+  padding: 14px 28px;
+  font-size: 15px;
+}
+
+/* Card surface */
+.card-surface {
+  background: #ffffff;
+  border-radius: var(--rounded-1);
+  box-shadow: 0 10px 30px -18px rgba(15, 28, 65, 0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-surface:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 45px -22px rgba(15, 28, 65, 0.28);
+}
+
+/* Inputs */
+.input {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: var(--btn-rounded);
+  padding: 12px 16px;
+  font-size: 15px;
+  font-family: var(--body-font);
+  color: var(--heading-font-color);
+  background: #ffffff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(var(--primary-color-rgb), 0.15);
+}
+
+textarea.input {
+  resize: vertical;
+  min-height: 130px;
+}
+
+label.field-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--heading-font-color);
+  margin-bottom: 6px;
+}
+
+/* Section background helpers */
+.bg-light { background-color: var(--bg-light); }
+.bg-even { background-color: var(--bg-color-even); }
+.bg-odd { background-color: var(--bg-color-odd); }
+.bg-grey { background-color: var(--bg-grey); }
+.bg-dark-1 { background-color: var(--bg-dark-1); }
+.bg-dark-2 { background-color: var(--bg-dark-2); }
+.bg-dark-3 { background-color: var(--bg-dark-3); }
+.bg-gradient-tint { background-image: var(--bg-gradient-1); }
+
+/* Scroll-reveal animation baseline */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+  }
+}
+
+/* Custom scrollbar (subtle) */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(var(--primary-color-rgb), 0.35);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(var(--primary-color-rgb), 0.6);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
