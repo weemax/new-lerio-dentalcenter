@@ -39,25 +39,33 @@ export function TeamCard({ member, index }: TeamCardProps) {
           }}
         />
 
-        {/* Socials — appear on hover */}
-        <ul className="absolute right-4 top-4 flex translate-y-2 flex-col gap-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-          {[
-            { Icon: Facebook, label: 'Facebook' },
-            { Icon: Instagram, label: 'Instagram' },
-            { Icon: Linkedin, label: 'LinkedIn' },
-            { Icon: Twitter, label: 'Twitter' },
-          ].map(({ Icon, label }) => (
-            <li key={label}>
-              <a
-                href="#"
-                aria-label={`${member.name} on ${label}`}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-heading transition-colors hover:bg-primary hover:text-white"
-              >
-                <Icon size={16} />
-              </a>
-            </li>
-          ))}
-        </ul>
+        {/* Socials — appear on hover (only when URLs exist) */}
+        {member.socialLinks ? (
+          <ul className="absolute right-4 top-4 flex translate-y-2 flex-col gap-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+            {(
+              [
+                { Icon: Facebook, label: 'Facebook', key: 'facebook' as const },
+                { Icon: Instagram, label: 'Instagram', key: 'instagram' as const },
+                { Icon: Linkedin, label: 'LinkedIn', key: 'linkedin' as const },
+                { Icon: Twitter, label: 'Twitter', key: 'twitter' as const },
+              ] as const
+            )
+              .filter(({ key }) => member.socialLinks![key])
+              .map(({ Icon, label, key }) => (
+                <li key={label}>
+                  <a
+                    href={member.socialLinks![key]}
+                    aria-label={`${member.name} on ${label}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-heading transition-colors hover:bg-primary hover:text-white"
+                  >
+                    <Icon size={16} />
+                  </a>
+                </li>
+              ))}
+          </ul>
+        ) : null}
 
         {/* Bottom overlay panel */}
         <div className="absolute inset-x-4 bottom-4 z-10 rounded-xl bg-white/95 px-4 py-3 backdrop-blur-sm">
