@@ -21,7 +21,6 @@ export function AboutSection() {
             className="reveal relative overflow-hidden rounded-[20px] shadow-2xl"
             style={{
               aspectRatio: '4 / 5',
-              boxShadow: '0 30px 60px -25px rgba(15, 28, 65, 0.35)',
             }}
           >
             <img
@@ -44,10 +43,9 @@ export function AboutSection() {
 
           <div
             ref={img2Ref}
-            className="reveal absolute -bottom-8 -right-4 hidden w-[55%] overflow-hidden rounded-[20px] border-8 border-white shadow-2xl sm:block"
+            className="reveal absolute bottom-6 right-6 hidden w-[55%] overflow-hidden rounded-[20px] border-8 border-white shadow-2xl sm:block"
             style={{
               aspectRatio: '5 / 6',
-              boxShadow: '0 30px 60px -25px rgba(15, 28, 65, 0.35)',
             }}
           >
             <img
@@ -60,7 +58,7 @@ export function AboutSection() {
 
           {/* Floating badge */}
           <div
-            className="absolute -bottom-6 left-4 z-10 hidden rounded-2xl bg-white px-5 py-4 shadow-2xl sm:flex sm:items-center sm:gap-4"
+            className="absolute bottom-4 left-4 z-10 hidden rounded-2xl bg-white px-5 py-4 shadow-2xl sm:flex sm:items-center sm:gap-4"
             style={{
               boxShadow: '0 25px 50px -22px rgba(15, 28, 65, 0.4)',
             }}
