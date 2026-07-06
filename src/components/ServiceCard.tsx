@@ -40,7 +40,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
       </p>
 
       <a
-        href="#services"
+        href={`/services/${service.slug}`}
         className="mt-auto inline-flex items-center gap-2 text-[14px] font-semibold uppercase tracking-[0.14em] transition-colors duration-300 hover:text-secondary"
         style={{ color: 'var(--primary-color)' }}
       >

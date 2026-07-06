@@ -49,6 +49,7 @@ export const navItems: NavItem[] = [
   },
   {
     label: 'Services',
+    href: '#services',
     dropdown: [
       { label: 'General & Family Dentistry', href: '#services' },
       { label: 'Pediatric Dentistry', href: '#services' },
@@ -66,6 +67,7 @@ export const navItems: NavItem[] = [
   },
   {
     label: 'About',
+    href: '#about',
     dropdown: [
       { label: 'About Us', href: '#about' },
       { label: 'Why Choose Us', href: '#why' },
@@ -160,6 +162,7 @@ export interface Service {
   title: string;
   description: string;
   icon: LucideIcon;
+  slug: string;
 }
 
 export const services: Service[] = [
@@ -168,48 +171,56 @@ export const services: Service[] = [
     description:
       'Routine check-ups, cleanings, fillings, and preventive care for every member of the family — from first tooth to senior care.',
     icon: Stethoscope,
+    slug: 'general-family-dentistry',
   },
   {
     title: 'Cosmetic & Esthetic Dentistry',
     description:
       'Whitening, veneers, and esthetic restorations designed to bring out the natural beauty of your smile.',
     icon: Sparkles,
+    slug: 'cosmetic-esthetic-dentistry',
   },
   {
     title: 'Pediatric Dentistry',
     description:
       'A calm, kid-friendly environment where children build healthy habits and fearless dental visits from the very start.',
     icon: Baby,
+    slug: 'pediatric-dentistry',
   },
   {
     title: 'Orthodontics & Invisalign',
     description:
       'Certified Invisalign provider — clear aligners and traditional braces that straighten teeth comfortably and discreetly.',
     icon: Smile,
+    slug: 'orthodontics-invisalign',
   },
   {
     title: 'Dental Implants & Surgery',
     description:
       'Implantology and oral surgery performed with precision, using modern techniques for predictable, lasting results.',
     icon: Wrench,
+    slug: 'dental-implants-surgery',
   },
   {
     title: 'Root Canal Therapy',
     description:
       'Gentle endodontic treatment to relieve pain and save natural teeth — usually completed in a single visit.',
     icon: Syringe,
+    slug: 'root-canal-therapy',
   },
   {
     title: 'Prosthodontics',
     description:
       'Crowns, bridges, and dentures crafted to restore comfort, function, and a natural-looking smile.',
     icon: ScanLine,
+    slug: 'prosthodontics',
   },
   {
     title: 'Geriatric Dentistry',
     description:
       'Specialized, patient-focused care for seniors — gentle treatment plans adapted to long-term comfort and health.',
     icon: HeartHandshake,
+    slug: 'geriatric-dentistry',
   },
 ];
 

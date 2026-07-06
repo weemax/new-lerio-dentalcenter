@@ -1,0 +1,36 @@
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
+import sitemap from 'vite-plugin-sitemap';
+import { resolve } from 'path';
+import { readFileSync } from 'fs';
+
+const raw = readFileSync(resolve('./src/data/content.ts'), 'utf-8');
+const match = raw.match(/slug:\s*'([^']+)'/g);
+const serviceSlugs: string[] = match
+  ? match.map((m: string) => {
+      const found = m.match(/slug:\s*'([^']+)'/);
+      return found ? found[1] : '';
+    }).filter(Boolean)
+  : [];
+
+const sitemapOptions = {
+  hostname: 'https://www.leriodentalcenter.com',
+  getRoutes: () => [
+    { path: '/' },
+    ...serviceSlugs.map((slug: string) => ({ path: `/services/${slug}` })),
+  ],
+};
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [
+    react(),
+    tailwindcss(),
+    sitemap(sitemapOptions),
+  ],
+  server: {
+    host: true,
+    port: 5173,
+  },
+});

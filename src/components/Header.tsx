@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Menu } from 'lucide-react';
 import { Logo } from './Logo';
 import { NavMenu } from './NavMenu';
@@ -14,6 +14,38 @@ import { navItems } from '../data/content';
 export function Header() {
   const scrolled = useScrolledPast({ threshold: 30 });
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Delegated smooth-scroll handler for all #anchor links.
+  // Always calls scrollIntoView so even re-clicking the same anchor works.
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a[href^="#"]');
+      if (!anchor) return;
+
+      const href = anchor.getAttribute('href');
+      if (!href || href === '#') return;
+
+      const id = href.slice(1);
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      e.preventDefault();
+
+      const prefersReduced =
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      el.scrollIntoView({
+        behavior: prefersReduced ? 'auto' : 'smooth',
+        block: 'start',
+      });
+
+      // Update URL bar so deep-links still reflect the current section.
+      window.history.pushState(null, '', href);
+    };
+
+    document.addEventListener('click', handleClick);
+    return () => document.removeEventListener('click', handleClick);
+  }, []);
 
   return (
     <>

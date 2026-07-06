@@ -110,29 +110,40 @@ export function ContactSection() {
             ))}
           </ul>
 
-          {/* Map placeholder */}
-          <div
-            className="card-surface mt-6 flex h-64 items-center justify-center overflow-hidden p-0"
-            aria-label="Map placeholder"
-            role="img"
-          >
-            <div
-              className="flex h-full w-full flex-col items-center justify-center text-center"
-              style={{
-                background:
-                  'repeating-linear-gradient(45deg, rgba(74,124,210,0.04) 0 12px, transparent 12px 24px)',
-              }}
-            >
-              <MapPin size={28} color="var(--primary-color)" />
-              <p
-                className="mt-3 text-[14px] font-semibold"
-                style={{ color: 'var(--heading-font-color)' }}
+          {/* Map embed */}
+          <div className="card-surface mt-6 overflow-hidden p-0">
+            <div className="relative w-full" style={{ aspectRatio: '16 / 9' }}>
+              <iframe
+                src="https://www.google.com/maps?q=Dr.+V.+Locsin+Street,+Dumaguete+City,+Negros+Oriental&output=embed"
+                title="Map showing Lerio Dental Center at Dr. V. Locsin Street, Dumaguete City"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="absolute inset-0 h-full w-full border-0"
+              />
+            </div>
+            <div className="flex items-center justify-between gap-3 p-4">
+              <div className="flex items-center gap-2">
+                <MapPin size={18} color="var(--primary-color)" />
+                <div>
+                  <p
+                    className="text-[14px] font-semibold"
+                    style={{ color: 'var(--heading-font-color)' }}
+                  >
+                    Dr. V. Locsin Street
+                  </p>
+                  <p className="text-[13px] text-body">
+                    Dumaguete City, Negros Oriental
+                  </p>
+                </div>
+              </div>
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=Dr.+V.+Locsin+Street,+Dumaguete+City,+Negros+Oriental"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline btn-sm"
               >
-                Dr. V. Locsin Street
-              </p>
-              <p className="text-[13px] text-body">
-                Dumaguete City, Negros Oriental
-              </p>
+                Get Directions
+              </a>
             </div>
           </div>
         </div>

@@ -1,72 +1,54 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import type { RouteRecord } from 'vite-react-ssg';
 import { HomePage } from './pages/HomePage';
 import { DesignSystem } from './pages/DesignSystem';
+import { ServiceArticlePage } from './pages/ServiceArticlePage';
 
-/**
- * Tiny hash-based router.
- *
- * Routes:
- *   #/            → HomePage (default)
- *   #/design      → DesignSystem showcase
- *
- * Keeps the app single-file-deployable without a router dependency,
- * and avoids re-implementing navigation for this static showcase.
- */
+// Service slugs — must match src/data/content.ts
+const SERVICE_SLUGS = [
+  'general-family-dentistry',
+  'cosmetic-esthetic-dentistry',
+  'pediatric-dentistry',
+  'orthodontics-invisalign',
+  'dental-implants-surgery',
+  'root-canal-therapy',
+  'prosthodontics',
+  'geriatric-dentistry',
+];
+
+/** Scrolls to top on every route change */
+function ScrollToTop() {
+  const { hash } = useLocation();
+  useEffect(() => {
+    if (!hash || hash === '#top') {
+      window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+    } else {
+      const el = document.querySelector(hash);
+      el?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [hash]);
+  return null;
+}
+
+export const routes: RouteRecord[] = [
+  {
+    path: '/',
+    Component: HomePage,
+  },
+  {
+    path: '/services/:slug',
+    // Use Component (not lazy) so SSG can find the module and render it
+    Component: ServiceArticlePage,
+    getStaticPaths: () => SERVICE_SLUGS.map((slug) => `/services/${slug}`),
+  },
+  {
+    path: '/design',
+    Component: DesignSystem,
+  },
+];
+
+// Root layout wrapper rendered for every route
 export default function App() {
-  const [route, setRoute] = useState<string>(() => parseHash(window.location.hash));
-
-  useEffect(() => {
-    const onHashChange = () => setRoute(parseHash(window.location.hash));
-    window.addEventListener('hashchange', onHashChange);
-    return () => window.removeEventListener('hashchange', onHashChange);
-  }, []);
-
-  // Always start scrolled to the top when switching routes
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
-  }, [route]);
-
-  return (
-    <>
-      <RouteSwitcher route={route} />
-      <a
-        href="#/design"
-        style={{
-          position: 'fixed',
-          bottom: 24,
-          right: 24,
-          zIndex: 80,
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: 8,
-          padding: '10px 16px',
-          borderRadius: 999,
-          background: route === 'design' ? 'var(--primary-color)' : '#ffffff',
-          color: route === 'design' ? '#ffffff' : 'var(--heading-font-color)',
-          fontFamily: 'var(--btn-font-family)',
-          fontSize: 13,
-          fontWeight: 600,
-          textDecoration: 'none',
-          boxShadow: '0 18px 40px -15px rgba(15, 28, 65, 0.35)',
-          border: '1px solid rgba(15,28,65,0.08)',
-          transition: 'transform 0.3s ease, background-color 0.3s ease',
-        }}
-        aria-label={
-          route === 'design' ? 'Go back to the home page' : 'Open the design system'
-        }
-      >
-        {route === 'design' ? '← Home' : 'Design System →'}
-      </a>
-    </>
-  );
-}
-
-function RouteSwitcher({ route }: { route: string }) {
-  if (route === 'design') return <DesignSystem />;
-  return <HomePage />;
-}
-
-function parseHash(hash: string): string {
-  const cleaned = hash.replace(/^#\/?/, '').trim();
-  return cleaned || 'home';
+  return <ScrollToTop />;
 }

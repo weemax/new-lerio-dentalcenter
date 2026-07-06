@@ -5,7 +5,7 @@ import tsPlugin from '@typescript-eslint/eslint-plugin';
 import globals from 'globals';
 
 export default [
-  { ignores: ['dist', 'node_modules', '.worktrees'] },
+  { ignores: ['dist', 'node_modules', '.worktrees', 'ameliabooking'] },
 
   // Base JS recommended
   js.configs.recommended,
@@ -18,7 +18,7 @@ export default [
 
   // Project-wide settings
   {
-    files: ['**/*.{js,jsx,ts,tsx}'],
+    files: ['**/*.{js,jsx,ts,tsx,mjs}'],
     languageOptions: {
       globals: {
         ...globals.browser,
