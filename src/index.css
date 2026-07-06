@@ -463,6 +463,37 @@ label.field-label {
   transform: translateY(0);
 }
 
+/* Hero slide transition — used when slides rotate */
+.hero-fade {
+  animation: hero-fade-in 0.7s ease both;
+}
+
+@keyframes hero-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle scroll-x track for testimonial cards on mobile */
+.scroll-track {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.scroll-track::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-track > * {
+  scroll-snap-align: start;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal.is-visible {
