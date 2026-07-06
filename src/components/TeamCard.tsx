@@ -60,7 +60,7 @@ export function TeamCard({ member, index }: TeamCardProps) {
         </ul>
 
         {/* Bottom overlay panel */}
-        <div className="absolute inset-x-4 bottom-4 rounded-xl bg-white/95 px-4 py-3 backdrop-blur-sm">
+        <div className="absolute inset-x-4 bottom-4 z-10 rounded-xl bg-white/95 px-4 py-3 backdrop-blur-sm">
           <h4
             className="text-[16px] font-semibold"
             style={{ marginBottom: 2, color: 'var(--heading-font-color)' }}

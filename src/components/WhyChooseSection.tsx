@@ -101,7 +101,7 @@ function ImageComposition() {
       {/* Smaller secondary image */}
       <div
         ref={ref2}
-        className="reveal absolute -bottom-10 -left-8 hidden w-[55%] overflow-hidden rounded-[20px] border-8 border-white sm:block"
+        className="reveal absolute -bottom-8 -left-6 hidden w-[50%] overflow-hidden rounded-[20px] border-8 border-white sm:block"
         style={{
           aspectRatio: '5 / 6',
           boxShadow: '0 25px 50px -22px rgba(15, 28, 65, 0.4)',

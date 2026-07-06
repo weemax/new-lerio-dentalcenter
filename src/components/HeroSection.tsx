@@ -37,6 +37,7 @@ export function HeroSection() {
           >
             <img
               src={slide.image}
+              role="presentation"
               alt=""
               className="h-full w-full object-cover"
               loading={i === 0 ? 'eager' : 'lazy'}

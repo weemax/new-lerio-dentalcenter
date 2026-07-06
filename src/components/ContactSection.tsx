@@ -52,7 +52,7 @@ export function ContactSection() {
 
   const update =
     <K extends keyof FormState>(key: K) =>
-    (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
       setForm((prev) => ({ ...prev, [key]: e.target.value }));
     };
 
@@ -192,14 +192,23 @@ export function ContactSection() {
                   <label className="field-label" htmlFor="c-subject">
                     Service of Interest
                   </label>
-                  <input
+                  <select
                     id="c-subject"
                     className="input"
-                    type="text"
                     value={form.subject}
                     onChange={update('subject')}
-                    placeholder="Cleaning, braces, implants, etc."
-                  />
+                  >
+                    <option value="">Select a service...</option>
+                    <option value="General & Family Dentistry">General & Family Dentistry</option>
+                    <option value="Cosmetic & Esthetic Dentistry">Cosmetic & Esthetic Dentistry</option>
+                    <option value="Pediatric Dentistry">Pediatric Dentistry</option>
+                    <option value="Orthodontics & Invisalign">Orthodontics & Invisalign</option>
+                    <option value="Dental Implants & Surgery">Dental Implants & Surgery</option>
+                    <option value="Root Canal Therapy">Root Canal Therapy</option>
+                    <option value="Prosthodontics">Prosthodontics</option>
+                    <option value="Geriatric Dentistry">Geriatric Dentistry</option>
+                    <option value="Other">Other</option>
+                  </select>
                 </div>
                 <div className="sm:col-span-2">
                   <label className="field-label" htmlFor="c-message">

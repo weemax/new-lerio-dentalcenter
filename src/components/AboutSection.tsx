@@ -15,7 +15,7 @@ export function AboutSection() {
     <Section id="about" bg="white" reveal>
       <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
         {/* Image collage */}
-        <div className="relative">
+        <div className="relative overflow-hidden">
           <div
             ref={img1Ref}
             className="reveal relative overflow-hidden rounded-[20px] shadow-2xl"
@@ -60,7 +60,7 @@ export function AboutSection() {
 
           {/* Floating badge */}
           <div
-            className="absolute -bottom-6 left-4 hidden rounded-2xl bg-white px-5 py-4 shadow-2xl sm:flex sm:items-center sm:gap-4"
+            className="absolute -bottom-6 left-4 z-10 hidden rounded-2xl bg-white px-5 py-4 shadow-2xl sm:flex sm:items-center sm:gap-4"
             style={{
               boxShadow: '0 25px 50px -22px rgba(15, 28, 65, 0.4)',
             }}

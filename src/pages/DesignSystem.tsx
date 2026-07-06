@@ -150,7 +150,7 @@ function DesignSystemNav() {
             ))}
           </ul>
         </nav>
-        <a href="#ds-top" className="btn btn-primary" style={{ padding: '10px 18px' }}>
+        <a href="#ds-top" className="btn btn-primary px-[18px] py-[10px]">
           Back to Top
         </a>
       </div>
@@ -669,7 +669,7 @@ function ButtonsSection() {
                 <Search size={18} />
               </button>
               <a
-                href="#"
+                href="#ds-buttons"
                 className="inline-flex items-center gap-2 text-[14px] font-semibold uppercase tracking-[0.14em] transition-colors hover:text-secondary"
                 style={{ color: 'var(--primary-color)' }}
               >
@@ -1108,7 +1108,7 @@ function CardsSection() {
             best version of you.
           </p>
           <a
-            href="#"
+            href="#ds-cards"
             className="mt-5 inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.14em] transition-colors hover:text-secondary"
             style={{ color: 'var(--primary-color)' }}
           >
@@ -1751,7 +1751,7 @@ function AlertsSection() {
                 Ready to book your dental care session?
               </h2>
             </div>
-            <a href="#" className="btn btn-white btn-lg" style={{ padding: '16px 32px' }}>
+            <a href="#contact" className="btn btn-white btn-lg">
               Book Appointment <ArrowRight size={18} />
             </a>
           </div>
@@ -1996,7 +1996,7 @@ function ComponentsInActionSection() {
                 {service.description}
               </p>
               <a
-                href="#"
+                href="#ds-components"
                 className="mt-auto inline-flex items-center gap-2 text-[14px] font-semibold uppercase tracking-[0.14em] transition-colors hover:text-secondary"
                 style={{ color: 'var(--primary-color)' }}
               >

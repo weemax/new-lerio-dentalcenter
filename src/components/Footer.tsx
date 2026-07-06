@@ -33,8 +33,7 @@ export function Footer() {
                 { Icon: MessageCircle, label: 'Messenger' },
               ].map(({ Icon, label }) => (
                 <li key={label}>
-                  <a
-                    href="#"
+                  <span
                     aria-label={`Lerio Dental Center on ${label}`}
                     className="inline-flex h-10 w-10 items-center justify-center rounded-full transition-colors duration-300"
                     style={{
@@ -44,7 +43,7 @@ export function Footer() {
                     }}
                   >
                     <Icon size={16} />
-                  </a>
+                  </span>
                 </li>
               ))}
             </ul>
@@ -143,11 +142,11 @@ export function Footer() {
                   <Mail size={16} />
                 </span>
                 <a
-                  href="mailto:contact.leriodentaleenter@gmail.com"
+                  href="mailto:contact.leriodentalcenter@gmail.com"
                   className="text-[14.5px] font-medium transition-colors hover:text-white"
                   style={{ color: 'rgba(255,255,255,0.75)' }}
                 >
-                  contact.leriodentaleenter@gmail.com
+                  contact.leriodentalcenter@gmail.com
                 </a>
               </li>
             </ul>
@@ -160,31 +159,11 @@ export function Footer() {
         className="border-t"
         style={{ borderColor: 'rgba(255,255,255,0.08)' }}
       >
-        <div className="container-x flex flex-col items-center justify-between gap-3 py-6 text-[13px] sm:flex-row sm:gap-0">
+        <div className="container-x py-6 text-center text-[13px]">
           <p style={{ color: 'rgba(255,255,255,0.55)', marginBottom: 0 }}>
             © {year} Lerio Dental Center · Dumaguete City, Negros Oriental. All
             rights reserved.
           </p>
-          <ul className="flex items-center gap-6">
-            <li>
-              <a
-                href="#"
-                className="transition-colors hover:text-white"
-                style={{ color: 'rgba(255,255,255,0.65)' }}
-              >
-                Terms &amp; Conditions
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="transition-colors hover:text-white"
-                style={{ color: 'rgba(255,255,255,0.65)' }}
-              >
-                Privacy Policy
-              </a>
-            </li>
-          </ul>
         </div>
       </div>
     </footer>

@@ -20,12 +20,12 @@ export function BookingCTA() {
     >
       {/* Decorative blobs */}
       <div
-        className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full"
+        className="pointer-events-none absolute -right-20 -top-20 z-0 h-64 w-64 rounded-full"
         style={{ background: 'rgba(234,166,56,0.18)' }}
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -bottom-16 -left-16 h-48 w-48 rounded-full"
+        className="pointer-events-none absolute -bottom-16 -left-16 z-0 h-48 w-48 rounded-full"
         style={{ background: 'rgba(255,255,255,0.08)' }}
         aria-hidden="true"
       />

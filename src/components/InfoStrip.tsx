@@ -15,11 +15,7 @@ export function InfoStrip() {
   return (
     <section
       aria-label="Contact info"
-      className="relative z-10 bg-dark-1 text-white"
-      style={{
-        marginTop: '-2px',
-        borderTop: '1px solid rgba(255,255,255,0.06)',
-      }}
+      className="relative -mt-0.5 z-10 bg-dark-1 text-white border-t border-white/10"
     >
       <div className="container-x">
         <ul className="grid grid-cols-1 divide-y divide-white/10 md:grid-cols-3 md:divide-x md:divide-y-0">

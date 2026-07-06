@@ -10,6 +10,10 @@
 
 import type { LucideIcon } from 'lucide-react';
 import {
+  Clock,
+  Mail,
+  MapPin,
+  Phone,
   Sparkles,
   Stethoscope,
   Baby,
@@ -112,7 +116,40 @@ export const infoStrip: Array<{
 }> = [
   { icon: 'phone', title: 'Book an Appointment', value: '0936-542-2515 · 0992-474-4274', href: 'tel:+639365422515' },
   { icon: 'clock', title: 'Clinic Hours', value: 'Mon – Sat · Sunday by appointment' },
-  { icon: 'mail', title: 'Email Us', value: 'contact.leriodentaleenter@gmail.com', href: 'mailto:contact.leriodentaleenter@gmail.com' },
+  { icon: 'mail', title: 'Email Us', value: 'contact.leriodentalcenter@gmail.com', href: 'mailto:contact.leriodentalcenter@gmail.com' },
+];
+
+/* ------------------------------------------------------------------------- */
+/* Contact info for ContactSection                                            */
+/* ------------------------------------------------------------------------- */
+
+export interface ContactInfoItem {
+  title: string;
+  value: string;
+  Icon: LucideIcon;
+}
+
+export const contactInfo: ContactInfoItem[] = [
+  {
+    Icon: MapPin,
+    title: 'Visit Us',
+    value: 'Dr. V. Locsin Street, Dumaguete City, Negros Oriental',
+  },
+  {
+    Icon: Phone,
+    title: 'Call or Text',
+    value: 'TM 0936-542-2515 · DITO 0992-474-4274',
+  },
+  {
+    Icon: Mail,
+    title: 'Email Us',
+    value: 'contact.leriodentalcenter@gmail.com',
+  },
+  {
+    Icon: Clock,
+    title: 'Clinic Hours',
+    value: 'Mon – Sat · Sunday by appointment',
+  },
 ];
 
 /* ------------------------------------------------------------------------- */
@@ -239,6 +276,12 @@ export interface TeamMember {
   role: string;
   credentials?: string;
   image: string;
+  socialLinks?: {
+    facebook?: string;
+    instagram?: string;
+    twitter?: string;
+    linkedin?: string;
+  };
 }
 
 export const team: TeamMember[] = [
@@ -295,7 +338,7 @@ export const faqs: FAQ[] = [
   {
     question: 'How do I book an appointment?',
     answer:
-      'Call or message us at 0936-542-2515 (TM) or 0992-474-4274 (DITO). You can also email contact.leriodentaleenter@gmail.com and our team will confirm your visit.',
+      'Call or message us at 0936-542-2515 (TM) or 0992-474-4274 (DITO). You can also email contact.leriodentalcenter@gmail.com and our team will confirm your visit.',
   },
   {
     question: 'Do you offer Invisalign and orthodontics?',

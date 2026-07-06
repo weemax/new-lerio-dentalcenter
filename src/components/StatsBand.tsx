@@ -11,7 +11,7 @@ function formatNumber(n: number) {
  * Dark band with animated stat counters. Counts trigger when the section enters view.
  */
 export function StatsBand() {
-  const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.25 });
+  const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.1 });
 
   return (
     <Section bg="dark-2" pad={false}>

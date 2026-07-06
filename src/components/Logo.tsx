@@ -17,7 +17,7 @@ export function Logo({ variant = 'dark', className = '' }: LogoProps) {
 
   return (
     <a
-      href="#top"
+      href="#/"
       aria-label="Lerio Dental Center — home"
       className={`inline-flex items-center gap-2.5 ${className}`}
       style={{ width: 'auto', maxWidth: 'var(--logo-width)' }}

@@ -6,18 +6,16 @@ import { useEffect, useRef, useState } from 'react';
  */
 export function useCountUp(target: number, start: boolean, durationMs = 1600) {
   const [value, setValue] = useState(0);
-  const startedRef = useRef(false);
 
   useEffect(() => {
-    if (!start || startedRef.current) return;
-    startedRef.current = true;
+    if (!start) return;
 
     const reduce =
       typeof window !== 'undefined' &&
       window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
     if (reduce) {
-      setValue(target);
+      queueMicrotask(() => setValue(target));
       return;
     }
 
@@ -54,7 +52,7 @@ export function useInView<T extends HTMLElement = HTMLDivElement>(
     if (!node) return;
 
     if (typeof IntersectionObserver === 'undefined') {
-      setInView(true);
+      queueMicrotask(() => setInView(true));
       return;
     }
 

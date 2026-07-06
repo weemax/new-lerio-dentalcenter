@@ -33,7 +33,7 @@ export function TestimonialsSection() {
       <div className="relative">
         <div
           ref={trackRef}
-          className="scroll-track -mx-4 flex gap-6 overflow-x-auto px-4 pb-2 lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:px-0 xl:grid-cols-4"
+          className="scroll-track -mx-4 flex gap-6 overflow-x-auto px-4 pb-2 lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:px-0"
         >
           {testimonials.slice(0, 4).map((t, i) => (
             <div

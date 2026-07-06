@@ -10,6 +10,8 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>(options?: {
   once?: boolean;
 }) {
   const ref = useRef<T | null>(null);
+  const optionsRef = useRef(options);
+  optionsRef.current = options;
 
   useEffect(() => {
     const node = ref.current;
@@ -25,23 +27,23 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>(options?: {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            if (options?.once !== false) {
+            if (optionsRef.current?.once !== false) {
               observer.unobserve(entry.target);
             }
-          } else if (options?.once === false) {
+          } else if (optionsRef.current?.once === false) {
             entry.target.classList.remove('is-visible');
           }
         });
       },
       {
-        threshold: options?.threshold ?? 0.15,
-        rootMargin: options?.rootMargin ?? '0px 0px -40px 0px',
+        threshold: optionsRef.current?.threshold ?? 0.15,
+        rootMargin: optionsRef.current?.rootMargin ?? '0px 0px -40px 0px',
       },
     );
 
     observer.observe(node);
     return () => observer.disconnect();
-  }, [options?.threshold, options?.rootMargin, options?.once]);
+  }, [optionsRef.current?.threshold, optionsRef.current?.rootMargin, optionsRef.current?.once]);
 
   return ref;
 }
@@ -54,6 +56,8 @@ export function useRevealAll<T extends HTMLElement = HTMLDivElement>(
   options?: { threshold?: number; rootMargin?: string; once?: boolean },
 ) {
   const refs = useRef<Array<T | null>>([]);
+  const optionsRef = useRef(options);
+  optionsRef.current = options;
 
   useEffect(() => {
     const nodes = refs.current.filter(Boolean) as T[];
@@ -69,21 +73,21 @@ export function useRevealAll<T extends HTMLElement = HTMLDivElement>(
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            if (options?.once !== false) observer.unobserve(entry.target);
-          } else if (options?.once === false) {
+            if (optionsRef.current?.once !== false) observer.unobserve(entry.target);
+          } else if (optionsRef.current?.once === false) {
             entry.target.classList.remove('is-visible');
           }
         });
       },
       {
-        threshold: options?.threshold ?? 0.15,
-        rootMargin: options?.rootMargin ?? '0px 0px -40px 0px',
+        threshold: optionsRef.current?.threshold ?? 0.15,
+        rootMargin: optionsRef.current?.rootMargin ?? '0px 0px -40px 0px',
       },
     );
 
     nodes.forEach((n) => observer.observe(n));
     return () => observer.disconnect();
-  }, [options?.threshold, options?.rootMargin, options?.once]);
+  }, [optionsRef.current?.threshold, optionsRef.current?.rootMargin, optionsRef.current?.once]);
 
   const setRef = (index: number) => (el: T | null) => {
     refs.current[index] = el;
