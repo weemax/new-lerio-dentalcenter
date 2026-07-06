@@ -1,4 +1,4 @@
-import { Link } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 interface LogoProps {
   variant?: 'light' | 'dark';
@@ -6,7 +6,8 @@ interface LogoProps {
 }
 
 /**
- * Brand wordmark. Uses the Urbanist display font for the logotype.
+ * Brand wordmark for Lerio Dental Center.
+ * Uses the Urbanist display font for the logotype with a tooth/dental accent mark.
  * `light` is for dark backgrounds, `dark` for light backgrounds.
  */
 export function Logo({ variant = 'dark', className = '' }: LogoProps) {
@@ -17,9 +18,9 @@ export function Logo({ variant = 'dark', className = '' }: LogoProps) {
   return (
     <a
       href="#top"
-      aria-label="Dentia home"
-      className={`inline-flex items-center gap-2 ${className}`}
-      style={{ width: 'var(--logo-width)' }}
+      aria-label="Lerio Dental Center — home"
+      className={`inline-flex items-center gap-2.5 ${className}`}
+      style={{ width: 'auto', maxWidth: 'var(--logo-width)' }}
     >
       <span
         className="inline-flex items-center justify-center"
@@ -33,19 +34,32 @@ export function Logo({ variant = 'dark', className = '' }: LogoProps) {
         }}
         aria-hidden="true"
       >
-        <Link size={20} strokeWidth={2.5} />
+        <Sparkles size={20} strokeWidth={2.5} />
       </span>
       <span
         style={{
           fontFamily: 'var(--heading-font)',
           fontWeight: 800,
-          fontSize: 24,
+          fontSize: 20,
           letterSpacing: '-0.02em',
           color: text,
-          lineHeight: 1,
+          lineHeight: 1.05,
+          whiteSpace: 'nowrap',
         }}
       >
-        Dent<span style={{ color: accent }}>ia</span>
+        Lerio<span style={{ color: accent }}>.</span>{' '}
+        <span
+          style={{
+            fontWeight: 600,
+            fontSize: 13,
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+            color: text,
+            opacity: 0.85,
+          }}
+        >
+          Dental Center
+        </span>
       </span>
     </a>
   );

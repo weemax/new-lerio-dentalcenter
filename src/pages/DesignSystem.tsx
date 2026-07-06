@@ -1,8 +1,9 @@
 /**
  * Design System showcase page.
  *
- * Renders every token, component, and pattern defined for Dentia so the
- * design language can be reviewed, audited, and reused in one place.
+ * Renders every token, component, and pattern defined for Lerio Dental
+ * Center so the design language can be reviewed, audited, and reused in one
+ * place.
  *
  * This is a documentation surface — not part of the production marketing
  * page. Sections are ordered to tell the design story:
@@ -184,7 +185,7 @@ function DSHero() {
       />
       <div className="container-x relative py-20 md:py-24">
         <div className="max-w-3xl">
-          <p className="eyebrow eyebrow--light">Dentia · v1.0</p>
+          <p className="eyebrow eyebrow--light">Lerio Dental Center · v1.0</p>
           <h1
             style={{
               color: '#ffffff',
@@ -192,16 +193,16 @@ function DSHero() {
               marginBottom: 16,
             }}
           >
-            The Dentia Design System
+            The Lerio Design System
           </h1>
           <p
             className="max-w-2xl text-[17px] leading-relaxed"
             style={{ color: 'rgba(255,255,255,0.78)', marginBottom: 28 }}
           >
             A living reference for every token, primitive, and component used
-            across the Dentia marketing experience. Each section below shows
-            the actual styling applied — the same CSS variables and utilities
-            that ship in production.
+            across the Lerio Dental Center marketing experience. Each section
+            below shows the actual styling applied — the same CSS variables and
+            utilities that ship in production.
           </p>
           <div className="flex flex-wrap gap-3">
             <a href="#ds-colors" className="btn btn-primary">
@@ -922,7 +923,7 @@ function FormsSection() {
                 id="ds-email-icon"
                 className="input"
                 type="email"
-                placeholder="you@dentiaclinic.com"
+                placeholder="you@leriodentalcenter.com"
                 style={{ paddingLeft: 40 }}
               />
             </div>
@@ -1006,7 +1007,7 @@ function FormsSection() {
               <input
                 id="ds-success"
                 className="input"
-                defaultValue="jane@dentiaclinic.com"
+                defaultValue="jane@leriodentalcenter.com"
                 style={{
                   borderColor: '#22c55e',
                   boxShadow: '0 0 0 4px rgba(34,197,94,0.12)',
@@ -2120,7 +2121,7 @@ function LogoExampleSection() {
       <SectionIntro
         eyebrow="Brand"
         heading="Logo"
-        description="The Dentia wordmark with two color modes — dark on light surfaces, light on dark surfaces."
+        description="The Lerio Dental Center wordmark with two color modes — dark on light surfaces, light on dark surfaces."
       />
 
       <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -2147,7 +2148,7 @@ function DSFooter() {
     <footer className="bg-dark-2 text-white">
       <div className="container-x flex flex-col items-center justify-between gap-3 py-8 text-[13px] sm:flex-row">
         <p style={{ color: 'rgba(255,255,255,0.65)', marginBottom: 0 }}>
-          © {new Date().getFullYear()} Dentia Design System · All tokens defined in
+          © {new Date().getFullYear()} Lerio Dental Center Design System · All tokens defined in
           <code
             className="ml-1 rounded px-1.5 py-0.5"
             style={{ background: 'rgba(255,255,255,0.08)' }}

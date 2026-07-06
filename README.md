@@ -1,9 +1,12 @@
-# Dentia — Premium Dental Clinic Website
+# Lerio Dental Center — Gentle Family Dentistry
 
-A complete React + Vite + Tailwind CSS v4 marketing site for a premium dental
-clinic. Single-page composition with a sticky header, hero, info strip,
-about, services, stats, why-choose-us, team, FAQ, testimonials, booking CTA,
-contact, and footer.
+A complete React + Vite + Tailwind CSS v4 marketing site for Lerio Dental
+Center in Dumaguete City. Single-page composition with a sticky header,
+hero, info strip, about, services, stats, why-choose-us, team, FAQ,
+testimonials, booking CTA, contact, and footer.
+
+**Clinic:** Lerio Dental Center · Dr. V. Locsin Street, Dumaguete City, Negros Oriental
+**Lead Doctors:** Dr. Myrine Lerio · Dr. Francine Nicole Lerio · Dr. Yumi Sayade Alquisalas
 
 ## Stack
 
@@ -29,14 +32,21 @@ npm run build      # type-check + production build
 npm run preview    # preview the production build
 ```
 
+## Pages
+
+- `#/` (default) — Home page (marketing landing experience)
+- `#/design` — Design System showcase (tokens + components reference)
+
+A floating bottom-right pill on every page toggles between them.
+
 ## Structure
 
 ```
 src/
-  App.tsx                  # Home page composition
+  App.tsx                  # Hash-based router (Home / Design System)
   main.tsx                 # React entry
   index.css                # Tailwind v4 import + design tokens + utilities
-  data/content.ts          # Typed mock data (nav, services, team, FAQ, etc.)
+  data/content.ts          # Typed clinic data (nav, services, team, FAQ, etc.)
   hooks/
     useReveal.ts           # Intersection-Observer reveal animation
     useCountUp.ts          # rAF count-up + in-view gate
@@ -44,14 +54,14 @@ src/
   components/
     Section.tsx            # Section wrapper with bg/padding tokens
     SectionIntro.tsx       # Centered intro block (eyebrow + h2 + p)
-    Logo.tsx               # Brand wordmark
+    Logo.tsx               # Lerio Dental Center wordmark
     Header.tsx             # Sticky transparent→solid header
     NavMenu.tsx            # Desktop dropdown menu
     MobileMenu.tsx         # Full-screen mobile menu with accordions
     HeroSection.tsx        # Auto-rotating hero with dual CTA + trust row
     InfoStrip.tsx          # Dark contact band under the hero
     AboutSection.tsx       # 2-col About with image collage + checklist
-    ServicesSection.tsx    # Light tinted, 4-card service grid
+    ServicesSection.tsx    # Light tinted, 8-card service grid
     ServiceCard.tsx        # Single service card
     StatsBand.tsx          # Dark band with animated counters
     WhyChooseSection.tsx   # 2-col benefits + image composition
@@ -63,6 +73,10 @@ src/
     BookingCTA.tsx         # Primary-colored CTA band
     ContactSection.tsx     # Contact info + working form w/ confirmation
     Footer.tsx             # Dark footer with link columns + legal bar
+  pages/
+    HomePage.tsx           # Default route composition
+    DesignSystem.tsx       # Showcase page
+    designSystemDemoData.ts
 ```
 
 ## Accessibility

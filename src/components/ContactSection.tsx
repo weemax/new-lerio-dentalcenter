@@ -4,10 +4,26 @@ import { Section } from './Section';
 import { SectionIntro } from './SectionIntro';
 
 const contactItems = [
-  { Icon: MapPin, title: 'Visit Us', value: '2486 Maple Avenue, Suite 204, Brookfield, NY 11201' },
-  { Icon: Phone, title: 'Call Us', value: '+1 (123) 456-789' },
-  { Icon: Mail, title: 'Email Us', value: 'contact@dentiaclinic.com' },
-  { Icon: Clock, title: 'Opening Hours', value: 'Mon – Sat: 08:00 – 20:00' },
+  {
+    Icon: MapPin,
+    title: 'Visit Us',
+    value: 'Dr. V. Locsin Street, Dumaguete City, Negros Oriental',
+  },
+  {
+    Icon: Phone,
+    title: 'Call or Text',
+    value: 'TM 0936-542-2515 · DITO 0992-474-4274',
+  },
+  {
+    Icon: Mail,
+    title: 'Email Us',
+    value: 'contact.leriodentaleenter@gmail.com',
+  },
+  {
+    Icon: Clock,
+    title: 'Clinic Hours',
+    value: 'Mon – Sat · Sunday by appointment',
+  },
 ];
 
 interface FormState {
@@ -51,8 +67,8 @@ export function ContactSection() {
       <div className="mb-10 lg:mb-12">
         <SectionIntro
           eyebrow="Get in Touch"
-          heading="We’d Love to Hear From You"
-          description="Send a message or give us a call. We’ll get back within one business day, and we’re often faster."
+          heading="Book Your Visit to Lerio Dental Center"
+          description="Send us a message or give us a call — we'll confirm your visit and send everything you need to feel prepared."
         />
       </div>
 
@@ -112,9 +128,11 @@ export function ContactSection() {
                 className="mt-3 text-[14px] font-semibold"
                 style={{ color: 'var(--heading-font-color)' }}
               >
-                2486 Maple Avenue
+                Dr. V. Locsin Street
               </p>
-              <p className="text-[13px] text-body">Brookfield, NY 11201</p>
+              <p className="text-[13px] text-body">
+                Dumaguete City, Negros Oriental
+              </p>
             </div>
           </div>
         </div>
@@ -166,13 +184,13 @@ export function ContactSection() {
                     type="tel"
                     value={form.phone}
                     onChange={update('phone')}
-                    placeholder="+1 (555) 000-0000"
+                    placeholder="0917-000-0000"
                     autoComplete="tel"
                   />
                 </div>
                 <div>
                   <label className="field-label" htmlFor="c-subject">
-                    Subject
+                    Service of Interest
                   </label>
                   <input
                     id="c-subject"
@@ -180,7 +198,7 @@ export function ContactSection() {
                     type="text"
                     value={form.subject}
                     onChange={update('subject')}
-                    placeholder="How can we help?"
+                    placeholder="Cleaning, braces, implants, etc."
                   />
                 </div>
                 <div className="sm:col-span-2">
@@ -194,12 +212,20 @@ export function ContactSection() {
                     rows={5}
                     value={form.message}
                     onChange={update('message')}
-                    placeholder="Tell us a bit about what you’d like to discuss…"
+                    placeholder="Tell us when you'd like to come in and any concerns we should know about…"
                   />
                 </div>
                 <div className="sm:col-span-2 flex flex-wrap items-center justify-between gap-3">
                   <p className="text-[13px] text-body" style={{ marginBottom: 0 }}>
-                    We typically reply within one business day.
+                    Or call us directly at{' '}
+                    <a
+                      href="tel:+639365422515"
+                      className="font-semibold"
+                      style={{ color: 'var(--primary-color)' }}
+                    >
+                      0936-542-2515
+                    </a>
+                    .
                   </p>
                   <button type="submit" className="btn btn-primary btn-lg">
                     Send Message <Send size={16} />
@@ -238,8 +264,8 @@ function ConfirmationState({ onReset }: { onReset: () => void }) {
         className="max-w-md text-[15px] leading-relaxed text-body"
         style={{ marginBottom: 20 }}
       >
-        Thanks for reaching out. A member of our team will follow up within one
-        business day.
+        Thanks for reaching out to Lerio Dental Center. Our team will follow up
+        within one business day to confirm your visit.
       </p>
       <button type="button" className="btn btn-outline" onClick={onReset}>
         Send Another Message

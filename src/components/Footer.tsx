@@ -1,12 +1,13 @@
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from 'lucide-react';
+import { Facebook, Instagram, Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 import { Logo } from './Logo';
 import { footerColumns } from '../data/content';
 
 /**
- * Dark footer with brand block, link columns, contact info and a
- * legal/subfooter bar.
+ * Dark footer for Lerio Dental Center.
+ * Includes brand block, link columns, contact info, and a legal/subfooter bar.
  */
 export function Footer() {
+  const year = new Date().getFullYear();
   return (
     <footer
       className="bg-dark-2 text-white"
@@ -21,21 +22,20 @@ export function Footer() {
               className="mt-5 max-w-sm text-[15px] leading-relaxed"
               style={{ color: 'rgba(255,255,255,0.65)' }}
             >
-              Premium family dental care that feels calm, modern, and personal.
-              We’re proud to serve our community with the same standard of
-              gentle dentistry we’d want for our own families.
+              Gentle, comprehensive dental care for the whole family in
+              Dumaguete City — led by Dr. Myrine Lerio, Dr. Francine Nicole
+              Lerio, and Dr. Yumi Sayade Alquisalas.
             </p>
             <ul className="mt-6 flex items-center gap-3">
               {[
                 { Icon: Facebook, label: 'Facebook' },
                 { Icon: Instagram, label: 'Instagram' },
-                { Icon: Twitter, label: 'Twitter' },
-                { Icon: Linkedin, label: 'LinkedIn' },
+                { Icon: MessageCircle, label: 'Messenger' },
               ].map(({ Icon, label }) => (
                 <li key={label}>
                   <a
                     href="#"
-                    aria-label={`Dentia on ${label}`}
+                    aria-label={`Lerio Dental Center on ${label}`}
                     className="inline-flex h-10 w-10 items-center justify-center rounded-full transition-colors duration-300"
                     style={{
                       background: 'rgba(255,255,255,0.06)',
@@ -81,7 +81,7 @@ export function Footer() {
               className="mb-5 text-[15px] font-semibold uppercase tracking-[0.14em]"
               style={{ color: '#ffffff' }}
             >
-              Contact
+              Visit · Call · Email
             </h4>
             <ul className="flex flex-col gap-4">
               <li className="flex items-start gap-3">
@@ -99,8 +99,8 @@ export function Footer() {
                   className="text-[14.5px] leading-relaxed"
                   style={{ color: 'rgba(255,255,255,0.75)' }}
                 >
-                  2486 Maple Avenue, Suite 204<br />
-                  Brookfield, NY 11201
+                  Dr. V. Locsin Street<br />
+                  Dumaguete City, Negros Oriental
                 </span>
               </li>
               <li className="flex items-start gap-3">
@@ -114,13 +114,22 @@ export function Footer() {
                 >
                   <Phone size={16} />
                 </span>
-                <a
-                  href="tel:+1123456789"
-                  className="text-[14.5px] font-medium transition-colors hover:text-white"
-                  style={{ color: 'rgba(255,255,255,0.75)' }}
-                >
-                  +1 (123) 456-789
-                </a>
+                <div className="flex flex-col gap-0.5">
+                  <a
+                    href="tel:+639365422515"
+                    className="text-[14.5px] font-medium transition-colors hover:text-white"
+                    style={{ color: 'rgba(255,255,255,0.75)' }}
+                  >
+                    TM · 0936-542-2515
+                  </a>
+                  <a
+                    href="tel:+639924744274"
+                    className="text-[14.5px] font-medium transition-colors hover:text-white"
+                    style={{ color: 'rgba(255,255,255,0.75)' }}
+                  >
+                    DITO · 0992-474-4274
+                  </a>
+                </div>
               </li>
               <li className="flex items-start gap-3">
                 <span
@@ -134,11 +143,11 @@ export function Footer() {
                   <Mail size={16} />
                 </span>
                 <a
-                  href="mailto:contact@dentiaclinic.com"
+                  href="mailto:contact.leriodentaleenter@gmail.com"
                   className="text-[14.5px] font-medium transition-colors hover:text-white"
                   style={{ color: 'rgba(255,255,255,0.75)' }}
                 >
-                  contact@dentiaclinic.com
+                  contact.leriodentaleenter@gmail.com
                 </a>
               </li>
             </ul>
@@ -153,7 +162,8 @@ export function Footer() {
       >
         <div className="container-x flex flex-col items-center justify-between gap-3 py-6 text-[13px] sm:flex-row sm:gap-0">
           <p style={{ color: 'rgba(255,255,255,0.55)', marginBottom: 0 }}>
-            © {new Date().getFullYear()} Dentia Dental Clinic. All rights reserved.
+            © {year} Lerio Dental Center · Dumaguete City, Negros Oriental. All
+            rights reserved.
           </p>
           <ul className="flex items-center gap-6">
             <li>

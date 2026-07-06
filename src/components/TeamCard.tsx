@@ -62,17 +62,28 @@ export function TeamCard({ member, index }: TeamCardProps) {
         {/* Bottom overlay panel */}
         <div className="absolute inset-x-4 bottom-4 rounded-xl bg-white/95 px-4 py-3 backdrop-blur-sm">
           <h4
-            className="text-[17px] font-semibold"
+            className="text-[16px] font-semibold"
             style={{ marginBottom: 2, color: 'var(--heading-font-color)' }}
           >
             {member.name}
           </h4>
           <p
-            className="text-[13px] font-medium"
-            style={{ color: 'var(--primary-color)', marginBottom: 0 }}
+            className="text-[12.5px] font-medium"
+            style={{ color: 'var(--primary-color)', marginBottom: 2 }}
           >
             {member.role}
           </p>
+          {member.credentials ? (
+            <p
+              className="text-[11.5px] font-normal"
+              style={{
+                color: 'var(--body-font-color)',
+                marginBottom: 0,
+              }}
+            >
+              {member.credentials}
+            </p>
+          ) : null}
         </div>
       </div>
     </article>

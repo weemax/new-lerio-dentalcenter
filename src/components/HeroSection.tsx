@@ -98,16 +98,18 @@ export function HeroSection() {
                 maxWidth: 560,
               }}
             >
-              Personalized, gentle dentistry for the whole family — combining
-              advanced technology with a calm, human touch.
+              Trusted family dental care in Dumaguete City — led by Dr. Myrine
+              Lerio, Dr. Francine Nicole Lerio, and Dr. Yumi Sayade Alquisalas.
+              We combine expert clinical skills with a calm, patient-focused
+              experience.
             </p>
 
             <div className="hero-fade flex flex-wrap items-center gap-3">
               <a href="#booking" className="btn btn-primary btn-lg">
                 Book Appointment <ArrowRight size={18} />
               </a>
-              <a href="#services" className="btn btn-outline-light btn-lg">
-                Explore Services
+              <a href="tel:+639365422515" className="btn btn-outline-light btn-lg">
+                Call 0936-542-2515
               </a>
             </div>
 
@@ -150,7 +152,7 @@ export function HeroSection() {
                 className="text-[14px] font-medium"
                 style={{ color: 'rgba(255,255,255,0.85)' }}
               >
-                Based on 23k Reviews
+                Based on Google Reviews
               </span>
             </div>
           </div>

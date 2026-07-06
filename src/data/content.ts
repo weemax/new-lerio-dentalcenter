@@ -1,7 +1,11 @@
 /**
- * Centralized typed content for the Dentia marketing site.
+ * Centralized typed content for the Lerio Dental Center marketing site.
  * All repeated copy and structured data lives here so components stay
  * presentation-focused and the site stays easy to maintain.
+ *
+ * Brand: Lerio Dental Center
+ * Tagline: Gentle, comprehensive dental care in Dumaguete City
+ * Lead doctors: Dr. Myrine Lerio, Dr. Francine Nicole Lerio, Dr. Yumi Sayade Alquisalas
  */
 
 import type { LucideIcon } from 'lucide-react';
@@ -9,15 +13,14 @@ import {
   Sparkles,
   Stethoscope,
   Baby,
-  HeartPulse,
-  Activity,
-  AlignCenter,
   ShieldCheck,
   Wrench,
   Smile,
   Microscope,
   HeartHandshake,
   Users,
+  Syringe,
+  ScanLine,
 } from 'lucide-react';
 
 /* ------------------------------------------------------------------------- */
@@ -38,25 +41,18 @@ export interface NavItem {
 export const navItems: NavItem[] = [
   {
     label: 'Home',
-    dropdown: [
-      { label: 'Homepage 1', href: '#' },
-      { label: 'Homepage 2', href: '#' },
-      { label: 'Homepage 3', href: '#' },
-      { label: 'Homepage 4', href: '#' },
-      { label: 'Homepage 5', href: '#' },
-      { label: 'Homepage 6', href: '#' },
-      { label: 'Homepage 7', href: '#' },
-    ],
+    href: '#top',
   },
   {
     label: 'Services',
     dropdown: [
-      { label: 'General Dentistry', href: '#services' },
-      { label: 'Cosmetic Dentistry', href: '#services' },
+      { label: 'General & Family Dentistry', href: '#services' },
       { label: 'Pediatric Dentistry', href: '#services' },
-      { label: 'Restorative Dentistry', href: '#services' },
-      { label: 'Preventive Dentistry', href: '#services' },
-      { label: 'Orthodontics', href: '#services' },
+      { label: 'Cosmetic & Esthetic Dentistry', href: '#services' },
+      { label: 'Orthodontics & Invisalign', href: '#services' },
+      { label: 'Dental Implants & Surgery', href: '#services' },
+      { label: 'Root Canal Therapy', href: '#services' },
+      { label: 'Prosthodontics', href: '#services' },
       { label: 'All Services', href: '#services' },
     ],
   },
@@ -65,17 +61,13 @@ export const navItems: NavItem[] = [
     href: '#team',
   },
   {
-    label: 'Pages',
+    label: 'About',
     dropdown: [
       { label: 'About Us', href: '#about' },
+      { label: 'Why Choose Us', href: '#why' },
       { label: 'FAQ', href: '#faq' },
-      { label: 'Gallery', href: '#' },
       { label: 'Testimonials', href: '#testimonials' },
     ],
-  },
-  {
-    label: 'Blog',
-    href: '#blog',
   },
   {
     label: 'Contact',
@@ -95,13 +87,13 @@ export interface HeroSlide {
 
 export const heroSlides: HeroSlide[] = [
   {
-    eyebrow: 'Family Dental Care',
-    headline: 'Elevating Smiles with Expert Care and a Gentle Touch',
+    eyebrow: 'Lerio Dental Center · Dumaguete City',
+    headline: 'Gentle, Comprehensive Dental Care for the Whole Family',
     image:
       'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1400&q=80',
   },
   {
-    eyebrow: 'Modern Cosmetic Dentistry',
+    eyebrow: 'Invisalign Provider · Esthetic Dentistry',
     headline: 'Confidence Begins With a Smile You Love to Share',
     image:
       'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1400&q=80',
@@ -116,10 +108,11 @@ export const infoStrip: Array<{
   title: string;
   value: string;
   icon: 'phone' | 'clock' | 'mail';
+  href?: string;
 }> = [
-  { icon: 'phone', title: 'Need Dental Services?', value: 'Call: +1 123 456 789' },
-  { icon: 'clock', title: 'Opening Hours', value: 'Mon to Sat 08:00 - 20:00' },
-  { icon: 'mail', title: 'Email Us', value: 'contact@dentiaclinic.com' },
+  { icon: 'phone', title: 'Book an Appointment', value: '0936-542-2515 · 0992-474-4274', href: 'tel:+639365422515' },
+  { icon: 'clock', title: 'Clinic Hours', value: 'Mon – Sat · Sunday by appointment' },
+  { icon: 'mail', title: 'Email Us', value: 'contact.leriodentaleenter@gmail.com', href: 'mailto:contact.leriodentaleenter@gmail.com' },
 ];
 
 /* ------------------------------------------------------------------------- */
@@ -134,28 +127,52 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    title: 'General Dentistry',
+    title: 'General & Family Dentistry',
     description:
-      'Comprehensive exams, cleanings, and preventive treatments to keep your smile healthy year-round.',
+      'Routine check-ups, cleanings, fillings, and preventive care for every member of the family — from first tooth to senior care.',
     icon: Stethoscope,
   },
   {
-    title: 'Cosmetic Dentistry',
+    title: 'Cosmetic & Esthetic Dentistry',
     description:
-      'Whitening, veneers, and smile makeovers crafted to highlight the best version of you.',
+      'Whitening, veneers, and esthetic restorations designed to bring out the natural beauty of your smile.',
     icon: Sparkles,
   },
   {
     title: 'Pediatric Dentistry',
     description:
-      'A gentle, playful environment where children build healthy habits and fearless dental visits.',
+      'A calm, kid-friendly environment where children build healthy habits and fearless dental visits from the very start.',
     icon: Baby,
   },
   {
-    title: 'Restorative Dentistry',
+    title: 'Orthodontics & Invisalign',
     description:
-      'Crowns, bridges, and implants that restore comfort, function, and natural appearance.',
+      'Certified Invisalign provider — clear aligners and traditional braces that straighten teeth comfortably and discreetly.',
+    icon: Smile,
+  },
+  {
+    title: 'Dental Implants & Surgery',
+    description:
+      'Implantology and oral surgery performed with precision, using modern techniques for predictable, lasting results.',
     icon: Wrench,
+  },
+  {
+    title: 'Root Canal Therapy',
+    description:
+      'Gentle endodontic treatment to relieve pain and save natural teeth — usually completed in a single visit.',
+    icon: Syringe,
+  },
+  {
+    title: 'Prosthodontics',
+    description:
+      'Crowns, bridges, and dentures crafted to restore comfort, function, and a natural-looking smile.',
+    icon: ScanLine,
+  },
+  {
+    title: 'Geriatric Dentistry',
+    description:
+      'Specialized, patient-focused care for seniors — gentle treatment plans adapted to long-term comfort and health.',
+    icon: HeartHandshake,
   },
 ];
 
@@ -170,10 +187,10 @@ export interface Stat {
 }
 
 export const stats: Stat[] = [
-  { value: 10000, suffix: '+', label: 'Happy Patients' },
-  { value: 2500, suffix: '+', label: 'Teeth Whitened' },
-  { value: 800, suffix: '+', label: 'Dental Implants' },
-  { value: 15, suffix: '+', label: 'Years of Experience' },
+  { value: 10000, suffix: '+', label: 'Patients Served' },
+  { value: 15, suffix: '+', label: 'Years of Practice' },
+  { value: 100, suffix: '%', label: 'Autoclave-Sterilized Instruments' },
+  { value: 6, suffix: '/7', label: 'Days Open · Mon to Sat' },
 ];
 
 /* ------------------------------------------------------------------------- */
@@ -188,23 +205,27 @@ export interface Benefit {
 
 export const benefits: Benefit[] = [
   {
-    title: 'Experienced Dental',
-    description: 'Skilled care backed by years of trusted dental experience.',
+    title: 'Complete Dental Services',
+    description:
+      'From pediatric and geriatric care to orthodontics, implants, endodontics, and prosthodontics — all under one roof.',
     icon: ShieldCheck,
   },
   {
-    title: 'Advanced Technology',
-    description: 'Modern tools ensure accurate and efficient treatments.',
+    title: 'Safety First',
+    description:
+      '100% of our instruments undergo rigorous autoclave sterilization, meeting the highest standards of hygiene.',
     icon: Microscope,
   },
   {
-    title: 'Personalized Treatment',
-    description: 'Custom care plans made to fit your smile and lifestyle.',
+    title: 'Transparent Care',
+    description:
+      'Clear communication about your treatment plan, financing options, and the path to long-term oral health.',
     icon: HeartHandshake,
   },
   {
-    title: 'Family-Friendly',
-    description: 'Welcoming space for kids, teens, adults, and seniors.',
+    title: 'Convenient Scheduling',
+    description:
+      'Open Monday through Saturday, with Sunday appointments available. We respect your time and your smile.',
     icon: Users,
   },
 ];
@@ -216,33 +237,38 @@ export const benefits: Benefit[] = [
 export interface TeamMember {
   name: string;
   role: string;
+  credentials?: string;
   image: string;
 }
 
 export const team: TeamMember[] = [
   {
-    name: 'Dr. Sarah Bennett',
-    role: 'Lead Dentist',
+    name: 'Dr. Myrine Lerio',
+    role: 'Lead Dentist · Clinic Director',
+    credentials: 'General, Cosmetic & Family Dentistry',
     image:
       'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80',
   },
   {
-    name: 'Dr. Maya Lin',
-    role: 'Cosmetic Dentist',
+    name: 'Dr. Francine Nicole Lerio',
+    role: 'Associate Dentist',
+    credentials: 'Orthodontics · Invisalign Provider',
     image:
       'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80',
   },
   {
-    name: 'Dr. Ethan Brooks',
-    role: 'Orthodontist',
-    image:
-      'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80',
-  },
-  {
-    name: 'Dr. Olivia Carter',
-    role: 'Pediatric Dentist',
+    name: 'Dr. Yumi Sayade Alquisalas',
+    role: 'Associate Dentist',
+    credentials: 'Pediatric · Restorative Dentistry',
     image:
       'https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    name: 'Dr. Andrea Reyes',
+    role: 'Associate Dentist',
+    credentials: 'Endodontics · Prosthodontics',
+    image:
+      'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80',
   },
 ];
 
@@ -257,29 +283,39 @@ export interface FAQ {
 
 export const faqs: FAQ[] = [
   {
-    question: 'How often should I visit the dentist?',
+    question: 'Where is Lerio Dental Center located?',
     answer:
-      'It’s recommended to see your dentist every 6 months for a routine check-up and cleaning, unless advised otherwise.',
+      'We are conveniently located on Dr. V. Locsin Street, Dumaguete City, Negros Oriental — easy to find and accessible from anywhere in the city.',
   },
   {
-    question: 'What should I do in a dental emergency?',
+    question: 'What are your clinic hours?',
     answer:
-      'Call our office immediately. We offer same-day emergency care for issues like severe pain, broken teeth, or swelling.',
+      'Our clinic is open Monday through Saturday. Sunday appointments are also available for your convenience — just give us a call to schedule.',
   },
   {
-    question: 'Do you offer services for kids?',
+    question: 'How do I book an appointment?',
     answer:
-      'Absolutely. We provide gentle, friendly pediatric dental care for children of all ages.',
+      'Call or message us at 0936-542-2515 (TM) or 0992-474-4274 (DITO). You can also email contact.leriodentaleenter@gmail.com and our team will confirm your visit.',
   },
   {
-    question: 'What are my options for replacing missing teeth?',
+    question: 'Do you offer Invisalign and orthodontics?',
     answer:
-      'We offer dental implants, bridges, and dentures depending on your needs and preferences.',
+      'Yes. We are a certified Invisalign provider and also offer traditional orthodontic treatment. We’ll recommend the option that best fits your smile and lifestyle.',
   },
   {
-    question: 'Is teeth whitening safe?',
+    question: 'How do you ensure safety and hygiene?',
     answer:
-      'Yes, when performed by a dental professional, teeth whitening is safe and effective with long-lasting results.',
+      '100% of our instruments undergo rigorous autoclave sterilization. We follow strict infection-control protocols so every visit is safe and clean.',
+  },
+  {
+    question: 'Do you provide care for children and seniors?',
+    answer:
+      'Absolutely. Our team is experienced in pediatric dentistry and geriatric dentistry, with calm, patient-focused treatment plans for every age.',
+  },
+  {
+    question: 'Will I understand my treatment plan and costs?',
+    answer:
+      'Yes. Transparent communication is one of our core values. We walk you through the recommended treatment, the financing options, and what to expect at every step.',
   },
 ];
 
@@ -296,42 +332,42 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
-    name: 'Jessica Harmon',
-    role: 'Patient',
+    name: 'Maria Santos',
+    role: 'Patient · Dumaguete City',
     quote:
-      'From the moment I walked in, I felt cared for. The team explained every step and the results of my cosmetic work exceeded what I imagined.',
+      'The team at Lerio made my Invisalign journey easy and actually enjoyable. Every visit felt calm, well-explained, and genuinely caring.',
     avatar:
       'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80',
   },
   {
-    name: 'Marcus O’Connell',
-    role: 'Patient',
+    name: 'Jonathan Villanueva',
+    role: 'Patient · Dumaguete City',
     quote:
-      'I avoided dentists for years out of fear. Dentia changed that. Calm room, gentle hands, and a clear plan I could actually trust.',
+      'I’ve always been nervous at the dentist, but Dr. Myrine and her staff are so gentle. The clinic is spotless and the equipment feels modern.',
     avatar:
       'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
   },
   {
-    name: 'Priya Raman',
-    role: 'Patient',
+    name: 'Patricia Lim',
+    role: 'Parent of Patient',
     quote:
-      'My kids actually look forward to their visits. The pediatric team is patient, kind, and brilliant at what they do.',
+      'My kids actually look forward to their dental visits. The pediatric team is patient, kind, and brilliant with children.',
     avatar:
       'https://images.unsplash.com/photo-1573497019418-b400bb3ab074?auto=format&fit=crop&w=200&q=80',
   },
   {
-    name: 'Daniel Whitfield',
-    role: 'Patient',
+    name: 'Roberto Abaño',
+    role: 'Patient · Dumaguete City',
     quote:
-      'My implant treatment was smoother than I expected. Modern equipment, transparent pricing, and real follow-up care afterwards.',
+      'Honest, transparent, and painless. They explained every option clearly and helped me choose what was best — not what was most expensive.',
     avatar:
       'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=200&q=80',
   },
   {
-    name: 'Amelia Cruz',
-    role: 'Patient',
+    name: 'Andrea Tan',
+    role: 'Patient · Negros Oriental',
     quote:
-      'Booking was easy, the office is beautiful, and my smile makeover feels like a quiet confidence boost every single day.',
+      'From the front desk to the chair, everyone at Lerio Dental Center is warm and professional. Truly the best dental experience I’ve had.',
     avatar:
       'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80',
   },
@@ -343,23 +379,25 @@ export const testimonials: Testimonial[] = [
 
 export const footerColumns: Array<{ title: string; links: NavDropdownItem[] }> = [
   {
-    title: 'Company',
+    title: 'Clinic',
     links: [
       { label: 'About Us', href: '#about' },
-      { label: 'Our Team', href: '#team' },
-      { label: 'Careers', href: '#' },
-      { label: 'Press', href: '#' },
-      { label: 'Contact', href: '#contact' },
+      { label: 'Our Dentists', href: '#team' },
+      { label: 'Why Choose Us', href: '#why' },
+      { label: 'Testimonials', href: '#testimonials' },
+      { label: 'FAQ', href: '#faq' },
     ],
   },
   {
-    title: 'Our Services',
+    title: 'Services',
     links: [
-      { label: 'General Dentistry', href: '#services' },
-      { label: 'Cosmetic Dentistry', href: '#services' },
+      { label: 'General & Family Dentistry', href: '#services' },
       { label: 'Pediatric Dentistry', href: '#services' },
-      { label: 'Restorative Dentistry', href: '#services' },
-      { label: 'Orthodontics', href: '#services' },
+      { label: 'Cosmetic Dentistry', href: '#services' },
+      { label: 'Orthodontics & Invisalign', href: '#services' },
+      { label: 'Dental Implants & Surgery', href: '#services' },
+      { label: 'Root Canal Therapy', href: '#services' },
+      { label: 'Prosthodontics', href: '#services' },
     ],
   },
 ];
@@ -369,10 +407,10 @@ export const footerColumns: Array<{ title: string; links: NavDropdownItem[] }> =
 /* ------------------------------------------------------------------------- */
 
 export const aboutChecklist: string[] = [
-  'Personalized Treatment Plans',
-  'Gentle Care for Kids and Adults',
-  'State-of-the-Art Technology',
-  'Flexible Appointment Scheduling',
+  'Complete Dental Services for All Ages',
+  '100% Autoclave-Sterilized Instruments',
+  'Transparent Treatment Plans & Pricing',
+  'Open Monday – Saturday, Sunday by Appointment',
 ];
 
 /* ------------------------------------------------------------------------- */
@@ -380,13 +418,7 @@ export const aboutChecklist: string[] = [
 /* ------------------------------------------------------------------------- */
 
 export const whyChooseImages = {
-  primary: 'Dentist reviewing a patient scan',
-  secondary: 'Modern dental treatment room',
-  tertiary: 'Smiling patient after treatment',
+  primary: 'Dentist at Lerio Dental Center reviewing a patient scan',
+  secondary: 'Modern dental treatment room in Dumaguete',
+  tertiary: 'Smiling patient after treatment at Lerio Dental Center',
 };
-
-/* ------------------------------------------------------------------------- */
-/* Testimonial / generic icons exposed for re-use                             */
-/* ------------------------------------------------------------------------- */
-
-export { Smile, HeartPulse, Activity, AlignCenter };

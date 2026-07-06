@@ -89,9 +89,10 @@ export function AboutSection() {
           <p className="eyebrow">About Us</p>
           <h2>Professionals and Personalized Dental Excellence</h2>
           <p className="text-[16px] leading-relaxed text-body">
-            At Dentia, we believe great dentistry begins with listening. Our team
-            builds calm, family-focused treatment plans around the real needs of
-            every patient — from first tooth to confident smile.
+            At Lerio Dental Center, we believe great dentistry begins with
+            listening. Our team builds calm, family-focused treatment plans
+            around the real needs of every patient — from first tooth to
+            confident smile.
           </p>
 
           <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
