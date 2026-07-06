@@ -479,6 +479,23 @@ label.field-label {
   }
 }
 
+/* Spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Skeleton shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
 /* Subtle scroll-x track for testimonial cards on mobile */
 .scroll-track {
   scroll-snap-type: x mandatory;
